@@ -174,7 +174,7 @@ if (resumeBtn) {
     e.preventDefault();
     
     // The actual PDF file name in your folder
-    const pdfFileName = 'My-Resume (1).pdf';
+    const pdfFileName = 'My-Resume-(1).pdf';
     
     // Create a temporary anchor to trigger download
     const link = document.createElement('a');
