@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Kazerooni Property Portal - Mridul Tyagi | UI/UX Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Project Page Styles */
+        .project-hero {
+            padding: 150px 5% 80px;
+            background: linear-gradient(135deg, rgba(10,10,15,0.95), rgba(20,20,30,0.98));
+            border-bottom: 1px solid rgba(138,43,226,0.3);
+        }
+        
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .project-hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #fff, #8a2be2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-hero-subtitle {
+            color: #8a2be2;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .hero-description {
+            color: #b0b0d0;
+            line-height: 1.6;
+        }
+        
+        .project-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .project-meta-item {
+            background: rgba(30,30,40,0.6);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(138,43,226,0.2);
+        }
+        
+        .project-meta-item i {
+            font-size: 2rem;
+            color: #8a2be2;
+            margin-bottom: 10px;
+        }
+        
+        .project-meta-item h4 {
+            font-size: 1rem;
+            color: #a0a0c0;
+            margin-bottom: 5px;
+        }
+        
+        .project-meta-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .project-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .project-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #4169e1);
+            border-radius: 2px;
+        }
+        
+        .project-description-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b0b0d0;
+            margin-bottom: 30px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background: rgba(20,20,30,0.6);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(138,43,226,0.4);
+            box-shadow: 0 20px 40px rgba(138,43,226,0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(138,43,226,0.2), rgba(65,105,225,0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon i {
+            font-size: 1.8rem;
+            color: #8a2be2;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item p {
+            color: #a0a0c0;
+            line-height: 1.6;
+        }
+        
+        /* Screenshot Gallery with Real Images */
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .screenshot-item {
+            background: rgba(20,20,30,0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .screenshot-item:hover {
+            transform: translateY(-8px);
+            border-color: #8a2be2;
+            box-shadow: 0 20px 30px -12px rgba(138,43,226,0.3);
+        }
+        
+        .screenshot-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: linear-gradient(145deg, #0f0f1a, #1a1a2e);
+            transition: transform 0.4s ease;
+        }
+        
+        .screenshot-item:hover .screenshot-image {
+            transform: scale(1.02);
+        }
+        
+        .screenshot-caption {
+            padding: 15px;
+            text-align: center;
+            color: #b0b0d0;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .screenshot-caption i {
+            color: #8a2be2;
+            font-size: 0.9rem;
+        }
+        
+        /* Hero Image Container */
+        .hero-image-container {
+            height: 350px;
+            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(138,43,226,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        
+        .hero-image-container .fallback-icon {
+            position: absolute;
+            font-size: 5rem;
+            color: #8a2be2;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        /* Lightbox Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .image-modal.active {
+            display: flex;
+            animation: fadeInModal 0.2s ease;
+        }
+        
+        .modal-inner {
+            max-width: 90vw;
+            max-height: 85vh;
+            position: relative;
+            text-align: center;
+        }
+        
+        .modal-inner img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 2px solid rgba(138,43,226,0.6);
+        }
+        
+        .modal-caption {
+            margin-top: 18px;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            padding: 8px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 1rem;
+            backdrop-filter: blur(4px);
+        }
+        
+        .close-modal-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .close-modal-btn:hover {
+            background: #8a2be2;
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .tool-badge {
+            background: rgba(138,43,226,0.15);
+            border: 1px solid rgba(138,43,226,0.3);
+            padding: 12px 25px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        
+        .tool-badge:hover {
+            background: rgba(138,43,226,0.25);
+            transform: translateY(-2px);
+        }
+        
+        .tool-badge i {
+            font-size: 1.3rem;
+            color: #8a2be2;
+        }
+        
+        .tool-badge span {
+            font-weight: 500;
+        }
+        
+        .project-navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-link-project {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background: rgba(20,20,30,0.6);
+            border-radius: 50px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-link-project:hover {
+            border-color: #8a2be2;
+            transform: translateX(-5px);
+        }
+        
+        .nav-link-project.next:hover {
+            transform: translateX(5px);
+        }
+        
+        .nav-link-project i {
+            color: #8a2be2;
+        }
+        
+        .nav-info small {
+            color: #a0a0c0;
+            font-size: 0.8rem;
+        }
+        
+        .nav-info h4 {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .project-hero-content {
+                grid-template-columns: 1fr;
+            }
+            .project-hero-title {
+                font-size: 2.5rem;
+            }
+            .close-modal-btn {
+                top: 15px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mridul<span>Tyagi</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero with Image Support -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <div>
+                <h1 class="project-hero-title">
+                    <span class="text-gradient">Kazerooni</span><br>
+                    Property Management Portal
+                </h1>
+                <p class="project-hero-subtitle">Dubai-Based Real Estate Platform for Tenants, Landlords & Admins</p>
+                <p class="hero-description">A comprehensive property management solution designed for the Dubai market, streamlining operations for property managers, tenants, and landlords with intuitive dashboards and automated workflows.</p>
+                
+                <div class="project-meta-grid">
+                    <div class="project-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Duration</h4>
+                        <p>5 Months</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Modules</h4>
+                        <p>12+ Modules</p>
+                    </div>
+                    <div class="project-meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <h4>Role</h4>
+                        <p>Lead Designer</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="hero-image-container">
+                    <img src="1 Web Login.jpg" alt="Kazerooni Web Login Screen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <i class="fas fa-building fallback-icon" style="display: none;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <h2 class="project-section-title">Project Overview</h2>
+        <p class="project-description-text">
+            Kazerooni is a Dubai-based property management portal that digitizes and automates the entire property lifecycle. The platform serves three distinct user groups: tenants (seeking properties and managing leases), landlords (tracking income and property performance), and admin teams (managing maintenance, payments, and compliance). The goal was to create an intuitive, Arabic-friendly interface that handles complex real estate workflows while maintaining exceptional user experience.
+        </p>
+    </section>
+
+    <!-- Key Features -->
+    <section class="project-section" style="background: rgba(10,10,15,0.5); border-radius: 30px;">
+        <h2 class="project-section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-search"></i></div>
+                <h3>Advanced Property Search</h3>
+                <p>Filter properties by location, price, size, amenities, and availability with map integration and saved searches.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+                <h3>Digital Lease Management</h3>
+                <p>End-to-end lease creation, e-signatures, renewal reminders, and document storage with compliance tracking.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                <h3>Maintenance Requests</h3>
+                <p>Tenants can submit maintenance requests with photos; admin assigns vendors; real-time status updates.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3>Financial Dashboard</h3>
+                <p>Rent collection tracking, expense management, profit/loss statements, and tax reporting for landlords.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <h3>Automated Notifications</h3>
+                <p>Email and SMS reminders for rent due dates, maintenance updates, and document expiry.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-language"></i></div>
+                <h3>Bilingual Support</h3>
+                <p>Full Arabic and English interface with RTL layout support for Arabic users.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Screens Gallery with Real Images & Accurate Modal Descriptions -->
+    <section class="project-section">
+        <h2 class="project-section-title">Design Screens</h2>
+        <p class="project-description-text">Key UI screens from the Kazerooni Property Management Portal — click any image to view full size.</p>
+        
+        <div class="screenshot-gallery" id="screenshotGallery">
+            <!-- Screen 1: Web Login -->
+            <div class="screenshot-item" data-full="1 Web Login.jpg" data-caption="🔐 Web Login - Secure authentication portal for tenants, landlords, and admin users">
+                <img class="screenshot-image" src="1 Web Login.jpg" alt="Web Login Screen" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-sign-in-alt"></i> Web Login
+                </div>
+            </div>
+            
+            <!-- Screen 2: Portal Dashboard -->
+            <div class="screenshot-item" data-full="Portal Sample.png" data-caption="🏠 Portal Dashboard - Property performance overview, rent collection & occupancy metrics">
+                <img class="screenshot-image" src="Portal Sample.png" alt="Portal Dashboard" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-desktop"></i> Portal Dashboard
+                </div>
+            </div>
+            
+            <!-- Screen 3: Upcoming Projects Listing -->
+            <div class="screenshot-item" data-full="Upcoming Projects listing.png" data-caption="🏢 Upcoming Projects Listing - Browse and filter upcoming real estate developments">
+                <img class="screenshot-image" src="Upcoming Projects listing.png" alt="Upcoming Projects Listing" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-building"></i> Upcoming Projects
+                </div>
+            </div>
+            
+            <!-- Screen 4: Property Details -->
+            <div class="screenshot-item" data-full="Upcoming properties details.png" data-caption="📋 Property Details - Complete property specifications, amenities, pricing, and floor plans">
+                <img class="screenshot-image" src="Upcoming properties details.png" alt="Property Details" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-info-circle"></i> Property Details
+                </div>
+            </div>
+            
+            <!-- Screen 5: Maintenance Form -->
+            <div class="screenshot-item" data-full="Maintenance form.png" data-caption="🔧 Maintenance Request Form - Submit service requests with photos and priority levels">
+                <img class="screenshot-image" src="Maintenance form.png" alt="Maintenance Request Form" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-tools"></i> Maintenance Form
+                </div>
+            </div>
+            
+            <!-- Screen 6: Admin Helpdesk -->
+            <div class="screenshot-item" data-full="Ticket Raised Admin.png" data-caption="🎫 Admin Helpdesk - Manage and track tenant support tickets and maintenance requests">
+                <img class="screenshot-image" src="Ticket Raised Admin.png" alt="Admin Helpdesk" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-headset"></i> Admin Helpdesk
+                </div>
+            </div>
+            
+            <!-- Screen 7: Internal Dashboard -->
+            <div class="screenshot-item" data-full="Internal Dashboard.png" data-caption="📊 Internal Dashboard - Admin overview of property metrics, financials, and operations">
+                <img class="screenshot-image" src="Internal Dashboard.png" alt="Internal Dashboard" loading="lazy">
+                <div class="screenshot-caption">
+                    <i class="fas fa-chart-line"></i> Internal Dashboard
+                </div>
+            </div>
+        </div>
+        
+        <p class="project-description-text" style="text-align: center; font-size: 0.85rem; opacity: 0.8;">
+            <i class="fas fa-mouse-pointer"></i> Click any screenshot to view full-size
+        </p>
+    </section>
+
+    <!-- Design Approach -->
+    <section class="project-section" style="background: rgba(10,10,15,0.3); border-radius: 30px;">
+        <h2 class="project-section-title">Design Approach</h2>
+        <p class="project-description-text">
+            <strong>User-Centered Design:</strong> Conducted interviews with Dubai-based property managers and tenants to understand local market nuances. Created distinct user flows for each persona.
+        </p>
+        <p class="project-description-text">
+            <strong>RTL & Localization:</strong> Designed with RTL in mind from the start, ensuring seamless Arabic experience. Used appropriate cultural imagery and color psychology.
+        </p>
+        <p class="project-description-text">
+            <strong>Complex Data Simplified:</strong> Transformed complex property data into digestible visualizations and progressive disclosure patterns to avoid overwhelming users.
+        </p>
+    </section>
+
+    <!-- Tools Used -->
+    <section class="project-section">
+        <h2 class="project-section-title">Tools Used</h2>
+        <div class="tools-container">
+            <div class="tool-badge"><i class="fab fa-figma"></i><span>Figma</span></div>
+            <div class="tool-badge"><i class="fab fa-adobe"></i><span>Adobe XD</span></div>
+            <div class="tool-badge"><i class="fas fa-pencil-ruler"></i><span>Wireframing</span></div>
+            <div class="tool-badge"><i class="fas fa-universal-access"></i><span>Accessibility</span></div>
+            <div class="tool-badge"><i class="fas fa-language"></i><span>RTL Design</span></div>
+            <div class="tool-badge"><i class="fas fa-users"></i><span>User Testing</span></div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <div class="project-navigation">
+        <a href="tata-steel.html" class="nav-link-project">
+            <i class="fas fa-arrow-left"></i>
+            <div class="nav-info">
+                <small>Previous</small>
+                <h4>TATA Steel</h4>
+            </div>
+        </a>
+        <a href="dans.html" class="nav-link-project next">
+            <div class="nav-info">
+                <small>Next</small>
+                <h4>Dubai Air Navigation</h4>
+            </div>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+   <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="#home" class="logo">Mridul<span>Tyagi</span></a>
+        <p class="footer-tagline">UI/UX Designer · Design systems · Accessibility</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/mridultyagi" class="social-icon"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Mridul-tyagi" class="social-icon"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> Mridul Tyagi. All rights reserved.</p>
+    </div>
+  </footer>
+
+    <button id="scrollToTop" class="scroll-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="image-modal">
+        <div class="close-modal-btn" id="closeLightbox"><i class="fas fa-times"></i></div>
+        <div class="modal-inner">
+            <img id="lightboxImg" src="" alt="Full size screenshot">
+            <div id="lightboxCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Fix hero image fallback
+        const heroImg = document.querySelector('.hero-image-container img');
+        const heroIcon = document.querySelector('.hero-image-container .fallback-icon');
+        if (heroImg) {
+            heroImg.onerror = function() {
+                this.style.display = 'none';
+                if (heroIcon) heroIcon.style.display = 'flex';
+            };
+        }
+        
+        // Lightbox functionality for gallery images
+        const galleryItems = document.querySelectorAll('.screenshot-item');
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImg');
+        const modalCaption = document.getElementById('lightboxCaption');
+        const closeBtn = document.getElementById('closeLightbox');
+        
+        function openLightbox(imageUrl, captionText) {
+            if (!imageUrl || imageUrl === '') {
+                console.warn('No image URL provided');
+                return;
+            }
+            modalImg.src = imageUrl;
+            modalImg.alt = captionText || 'Kazerooni Design Screen';
+            modalCaption.textContent = captionText || 'UI Screenshot';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Attach click handlers to all gallery items
+        galleryItems.forEach(item => {
+            // Get high-res image from data-full attribute
+            let highResSrc = item.getAttribute('data-full');
+            const imgElement = item.querySelector('.screenshot-image');
+            
+            // If no data-full, use the img src
+            if (!highResSrc || highResSrc === '') {
+                if (imgElement && imgElement.src) {
+                    highResSrc = imgElement.src;
+                } else {
+                    highResSrc = 'https://picsum.photos/id/104/800/600';
+                }
+            }
+            
+            // Get caption text from data-caption attribute
+            let captionText = item.getAttribute('data-caption');
+            if (!captionText) {
+                const captionDiv = item.querySelector('.screenshot-caption');
+                if (captionDiv) {
+                    captionText = captionDiv.innerText.trim();
+                } else {
+                    captionText = 'Kazerooni Platform Screen';
+                }
+            }
+            
+            // Make the entire item clickable
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(highResSrc, captionText);
+            });
+        });
+        
+        // Close modal when clicking on background
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeLightbox();
+        });
+        
+        // Close button click
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeLightbox);
+        }
+        
+        // ESC key support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+        
+        // Handle image loading errors - replace with placeholder
+        const allImages = document.querySelectorAll('.screenshot-image');
+        allImages.forEach(img => {
+            img.addEventListener('error', function() {
+                console.warn('Image failed to load:', this.src);
+                this.src = 'https://picsum.photos/id/104/600/380';
+                this.alt = 'Image placeholder';
+            });
+        });
+    </script>
+</body>
+</html>
