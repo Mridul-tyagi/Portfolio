@@ -168,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // Resume Download Functionality
-  // Resume Download Functionality - Downloads actual PDF
 const resumeBtn = document.getElementById('resumeDownloadBtn');
 if (resumeBtn) {
   resumeBtn.addEventListener('click', function(e) {
